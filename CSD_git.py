@@ -22,6 +22,7 @@ import plotly.express as px
 
 import seaborn as sns
 
+
 import warnings
 warnings.filterwarnings("ignore")
 #st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -384,36 +385,9 @@ stock = st.selectbox('Stock', stock_lst)
 save_directory = r"C:\Users\devhs\OneDrive\Desktop\Ibpy_new\Strategies"
 
 if st.button('Create File'):
-    
-    new_file_content = f"""
-# This Python file was created based on user input
 
-def initialize(context):
-    context.run_once = False
-    #context.security = symbol('CASH, EUR, USD')
-    context.security = symbol('{stock}')
-    
-    
-def handle_data(context, data):
-    dt = data.history(context.security, ['open', 'high', 'low', 'close', 'volume'], 1500, '1d')
-    dt.to_csv('stock_data.csv')
-    end()
-"""
-
-    new_file_name = "data_source.py"
-    full_file_path = f"{save_directory}/{new_file_name}"
-
-    # Create and write to the new file in the specified directory
-    with open(full_file_path, "w") as new_file:
-        new_file.write(new_file_content)
-        
-    st.write(f"New Python file '{new_file_name}' has been created.")
-    
-    python_file = r"C:\Users\devhs\OneDrive\Desktop\Ibpy_new\RUN_ME.py"
-
-    subprocess.run(["python", python_file])
-    
-    st.write('New Stock File created')
+    st.write('This feature is not avaiable on streamlit at the moment because of the risk of leaking sensitive information.\
+             If you want to access this feature plese download the CSD_strategy file and place it in the Strategy folder of the IbdridgePy')
     
 
 st.write('## Input Data')
@@ -425,7 +399,7 @@ trade_size = col2.number_input('Number of Stocks', min_value = 25)
 profit_target = col1.number_input("Target Profit (in %)", min_value = 1)/100
 stop_loss = col2.number_input('Stop Loss (in %)', min_value = 1)/100
 
-data = pd.read_csv(r"stock_data.csv")
+data = pd.read_csv(r"C:\Users\devhs\stock_data.csv")
 
 data['date'] = data['timestamp'].str[:10]
 data['date'] = pd.to_datetime(data['date'])
@@ -526,43 +500,6 @@ report_button = st.button('Generate Report')
 
 if report_button:
     
-    # Define the columns for the final DataFrame
-    columns = ['Stock', 'Take_Profit', 'Stop_Loss', 'Profit', 'Max_Drawdown', 'Hit_Ratio']
+    first_report = pd.read_csv(r'first_report.csv')
     
-    # Initialize an empty DataFrame to store the results for all stocks
-    all_results_df = pd.DataFrame(columns=columns)
-    
-    for stock in stock_lst:
-        
-       # Call the report function to get results for the current stock
-        results = report(stock, tp_range, sl_range, capital_report, trade_size_report)
-        
-        # Convert the results to a DataFrame
-        results_df = pd.DataFrame(results, columns=columns[1:])
-        
-        # Find the row with the maximum profit
-        max_profit_row = results_df.loc[results_df['Profit'].idxmax()]
-        
-        # Find the row with the minimum drawdown
-        min_drawdown_row = results_df.loc[results_df['Max_Drawdown'].idxmin()]
-        
-        # Find the row with the maximum hit ratio
-        max_hit_ratio_row = results_df.loc[results_df['Hit_Ratio'].idxmax()]
-        
-        # Create a temporary DataFrame to store these rows
-        temp_df = pd.DataFrame([max_profit_row, min_drawdown_row, max_hit_ratio_row])
-        
-        # Add the stock name to the DataFrame
-        temp_df['Stock'] = stock
-        
-        # Reorder the columns to have 'Stock' as the first column
-        temp_df = temp_df[['Stock'] + columns[1:]]
-        
-        # Append the important rows of the current stock to the final DataFrame
-        all_results_df = all_results_df.append(temp_df, ignore_index=True)
-    
-    # Display the complete DataFrame with all stocks' results
-    #print(all_results_df)
-    
-    st.dataframe(all_results_df)
-#optimize = st.selectbox('Optimize Parameter')
+    st.write(first_report)
