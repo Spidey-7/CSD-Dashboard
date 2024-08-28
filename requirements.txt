@@ -7,8 +7,7 @@ calendar
 copy
 matplotlib.pyplot
 streamlit
-plotly.graph_objects
-plotly.express
+plotly
 seaborn
 warnings
 subprocess
