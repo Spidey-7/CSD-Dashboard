@@ -1,5 +1,3 @@
-time
-datetime
 numpy
 pandas
 talib
