@@ -1,6 +1,5 @@
 numpy
 pandas
-copy
 matplotlib.pyplot
 streamlit
 plotly
