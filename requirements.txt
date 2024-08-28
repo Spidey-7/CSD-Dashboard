@@ -1,6 +1,5 @@
 numpy
 pandas
-calendar
 copy
 matplotlib.pyplot
 streamlit
