@@ -4,4 +4,3 @@ matplotlib
 streamlit
 plotly
 seaborn
-subprocess
