@@ -1,14 +1,6 @@
-time
-datetime
 numpy
 pandas
-talib
-calendar
-copy
-matplotlib.pyplot
+matplotlib
 streamlit
-plotly.graph_objects
-plotly.express
+plotly
 seaborn
-warnings
-subprocess
