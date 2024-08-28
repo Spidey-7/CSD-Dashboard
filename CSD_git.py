@@ -413,8 +413,7 @@ st.write('## Strategy Results')
 col1, col2, col3 = st.columns(3)
 col1.metric(label = "Total Returns", value = f"{stats_sheet['Cumm_Returns'].iloc[-1]:.2f}%")
 col2.metric(label = 'Max Drawdown', value = f"{stats_sheet['Max_Daily_Drawdown'].iloc[-1] * 100:.2f}%")
-col3.metric(label = "Hit Ratio %", value = f"{(stats_sheet['Hit_Ratio'][0]) * 100}%")
-
+col3.metric(label="Hit Ratio %", value=f"{(stats_sheet['Hit_Ratio'][0]) * 100:.2f}%")
 
 st.write('## Return Plot')
 st.line_chart(stats_sheet['Cumm_Returns'])
