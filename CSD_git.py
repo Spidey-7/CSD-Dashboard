@@ -387,7 +387,8 @@ save_directory = r"C:\Users\devhs\OneDrive\Desktop\Ibpy_new\Strategies"
 if st.button('Create File'):
 
     st.write('This feature is not avaiable on streamlit at the moment because of the risk of leaking sensitive information.\
-             If you want to access this feature plese download the CSD_strategy file and place it in the Strategy folder of the IbdridgePy')
+             If you want to access this feature plese download the CSD_strategy file and place it in the Strategy folder of the IbdridgePy\
+                 NOTE: The data is of a Random Stock, for support of realtime data streaming please follow the above instructions. ')
     
 
 st.write('## Input Data')
@@ -501,4 +502,5 @@ report_button = st.button('Generate Report')
 if report_button:
     
     first_report = pd.read_csv(r'first_report.csv')
+    st.write('NOTE: This is a sample report, to access this report pls download the CSD_strategy.py file and place it in the IbridgePy folder')
     st.write(first_report)
