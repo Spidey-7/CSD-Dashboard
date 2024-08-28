@@ -399,7 +399,7 @@ trade_size = col2.number_input('Number of Stocks', min_value = 25)
 profit_target = col1.number_input("Target Profit (in %)", min_value = 1)/100
 stop_loss = col2.number_input('Stop Loss (in %)', min_value = 1)/100
 
-data = pd.read_csv(r"C:\Users\devhs\stock_data.csv")
+data = pd.read_csv(r"stock_data.csv")
 
 data['date'] = data['timestamp'].str[:10]
 data['date'] = pd.to_datetime(data['date'])
@@ -501,5 +501,4 @@ report_button = st.button('Generate Report')
 if report_button:
     
     first_report = pd.read_csv(r'first_report.csv')
-    
     st.write(first_report)
