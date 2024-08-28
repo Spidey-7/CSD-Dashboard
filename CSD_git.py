@@ -12,23 +12,15 @@ import datetime
 
 import numpy as np
 import pandas as pd
-import talib
-import calendar
-
-#import concurrent.futures
 
 from copy import deepcopy
 import matplotlib.pyplot as plt
-
-#from functools import lru_cache
 
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 
 import seaborn as sns
-
-#import os
 
 import warnings
 warnings.filterwarnings("ignore")
