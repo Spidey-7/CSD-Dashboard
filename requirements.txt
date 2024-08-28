@@ -1,0 +1,14 @@
+time
+datetime
+numpy
+pandas
+talib
+calendar
+copy
+matplotlib.pyplot
+streamlit
+plotly.graph_objects
+plotly.express
+seaborn
+warnings
+subprocess
